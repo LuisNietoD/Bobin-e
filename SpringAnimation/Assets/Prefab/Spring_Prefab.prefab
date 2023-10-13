@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 8514607517603941764}
   - component: {fileID: 8514607517604633362}
   - component: {fileID: 8514607517596878796}
+  - component: {fileID: 3336658404816739751}
+  - component: {fileID: 5798460426977571515}
+  - component: {fileID: 3832749975932558255}
   m_Layer: 0
   m_Name: Spring_Prefab
   m_TagString: Untagged
@@ -26,13 +29,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8514607517602902410}
+  serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.47533524, y: 1, z: -0.58722234}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &8514607517603941764
 MeshFilter:
@@ -99,5 +102,56 @@ MonoBehaviour:
   m_MeshBase: {fileID: -2124705421725058983, guid: 8bcad70ef18047a4bbd176ebbda79d94, type: 3}
   m_MorphTargets:
   - MorphMesh: {fileID: -2124705421725058983, guid: bafb1c4d2e583374b96b1afe8f7bc030, type: 3}
-    Weight: -0
+    Weight: 0
   m_GenerateNormals: 1
+--- !u!65 &3336658404816739751
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8514607517602902410}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.097824655, y: 0.09782468, z: 0.054007165}
+  m_Center: {x: 0, y: 0, z: 0.02023083}
+--- !u!114 &5798460426977571515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8514607517602902410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 020a3878ef64c7849968087171ccf583, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3832749975932558255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8514607517602902410}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4382a902f0ebd24dab5f86cb09726b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amplitude: 0.3
+  frequency: 1
+  damping: 0.8
+  retractSpeed: 0.1
+  spring: {fileID: 8514607517596878796}
+  movementRef: {fileID: 0}

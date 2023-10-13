@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using RotaryHeart.Lib.PhysicsExtension;
 using UnityEngine;
 using Physics = UnityEngine.Physics;
 
@@ -23,31 +22,40 @@ public class Movement : MonoBehaviour
     public float maxRayDistance = 2f; 
     public float minRayDistance = 0.5f;
 
-    private bool retracted = true;
-    public bool bounced = false;
+    public bool grounded = true;
     
-    private float restWeight = 0.1f;      // Weight for the rest position
-    private float compressedWeight = 0f;  // Weight for the compressed position
-    private float extendedWeight = 0.3f;  // Weight for the extended position
+    private bool _retracted = true;
+    public bool _bounced = false;
 
-    private Coroutine retractCoroutine;    // Coroutine to retract the spring
+    private float _restWeight = 0.1f;      // Weight for the rest position
+    private float _compressedWeight = 0f;  // Weight for the compressed position
+    private float _extendedWeight = 0.3f;  // Weight for the extended position
+
+    private Coroutine _retractCoroutine;    // Coroutine to retract the spring
 
 
     private Rigidbody _rb;
+    private Attack _attackRef;
 
     // Start is called before the first frame update
     void Start()
     {
         _rb = gameObject.GetComponent<Rigidbody>();
+        _attackRef = GetComponent<Attack>();
+        ResetGravity();
+    }
+
+    public void ResetGravity()
+    {
+        Physics.gravity = new Vector3(0, gravity, 0);
     }
 
     private void Update()
     {
-        Move();
-        
-        RetractTest();
-        
-        Physics.gravity = new Vector3(0, gravity, 0);
+        if(_attackRef.action == Attack.State.Nothing)
+            Move();
+        if(_attackRef.action != Attack.State.ChargeJump)
+            RetractTest();
     }
 
     /// <summary>
@@ -75,6 +83,11 @@ public class Movement : MonoBehaviour
         // Move the character
         Vector3 velocity = moveDirection.normalized * speed;
         _rb.velocity = new Vector3(velocity.x, _rb.velocity.y, velocity.z);
+
+        if (horizontal == 0 && vertical == 0)
+        {
+            _rb.velocity = new Vector3(0, _rb.velocity.y, 0);
+        }
     }
 
     void RetractTest()
@@ -85,54 +98,77 @@ public class Movement : MonoBehaviour
         RaycastHit hit;
         
         
+        Debug.DrawLine(rayOrigin, rayOrigin + (Vector3.down * maxRayDistance), Color.red);
         if (Physics.SphereCast(rayOrigin,thickness, rayDirection, out hit, maxRayDistance))
         {
             GameObject hitObject = hit.collider.gameObject;
 
-            Debug.DrawLine(rayOrigin, hit.point, Color.red);
-            if (hitObject.CompareTag("Ground") && bounced)
+            
+            if (hitObject.CompareTag("Ground") && _bounced)
             {
                 //Extend the spring before jumping
-                retracted = false;
-                float weight = Mathf.Lerp(compressedWeight, extendedWeight, Mathf.InverseLerp(minRayDistance, maxRayDistance, hit.distance));
-                weight = Mathf.Clamp(weight, compressedWeight, extendedWeight);
+                _retracted = false;
+                float weight = Mathf.Lerp(_compressedWeight, _extendedWeight, Mathf.InverseLerp(minRayDistance, maxRayDistance, hit.distance));
+                weight = Mathf.Clamp(weight, _compressedWeight, _extendedWeight);
                 spring.m_MorphTargets[0].Weight = weight;
             }
             else if (hitObject.CompareTag("Ground"))
             {
                 //Only retract the spring before landing
-                float weight = Mathf.Lerp(extendedWeight, compressedWeight, Mathf.InverseLerp(minRayDistance, maxRayDistance, hit.distance));
-                weight = Mathf.Clamp(weight, compressedWeight, spring.m_MorphTargets[0].Weight);
+                float weight = Mathf.Lerp(_extendedWeight, _compressedWeight, Mathf.InverseLerp(maxRayDistance, minRayDistance, hit.distance));
+                weight = Mathf.Clamp(weight, _compressedWeight, spring.m_MorphTargets[0].Weight);
                 spring.m_MorphTargets[0].Weight = weight;
             }
         }
-        else if (!retracted)
+        else if (!_retracted)
         {
-            retracted = true;
-            bounced = false;
+            _retracted = true;
+            _bounced = false;
             // Stop the coroutine if exist
-            if (retractCoroutine != null)
+            if (_retractCoroutine != null)
             {
-                StopCoroutine(retractCoroutine);
+                StopCoroutine(_retractCoroutine);
             }
 
-            retractCoroutine = StartCoroutine(RetractSpring());
+            _retractCoroutine = StartCoroutine(RetractSpring());
         }
     }
     
+    private void OnCollisionStay(Collision collision)
+    {
+        bool moving = Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0;
+        bool retracted = spring.m_MorphTargets[0].Weight < 0.13 && spring.m_MorphTargets[0].Weight > -0.02f;
+        
+        //Start extend and jump when collide the ground
+        if (collision.gameObject.CompareTag("Ground") && !_bounced && moving && retracted && !_attackRef.attacking)
+        {
+            if(_attackRef.flyCoroutine != null)
+                StopCoroutine(_attackRef.flyCoroutine);
+            ResetGravity();
+            _rb.velocity = new Vector3(_rb.velocity.x, 0, _rb.velocity.z);
+            _rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
+            _bounced = true;
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
-        //Start extend and jump when collide the ground
-        if (collision.gameObject.CompareTag("Ground") && !bounced)
+        if (collision.gameObject.CompareTag("Ground"))
         {
-            _rb.velocity = new Vector3(-_rb.velocity.x, 0, _rb.velocity.z);
-            _rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
-            bounced = true;
+            grounded = true;
         }
     }
-    
-    
-    //retract animation curve based
+
+    private void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            grounded = false;
+        }
+    }
+
+
+    //retract animation raycast based
     IEnumerator RetractSpring()
     {
         float elapsedTime = 0f;
@@ -140,7 +176,7 @@ public class Movement : MonoBehaviour
         //retract over time
         while (elapsedTime < retractDuration)
         {
-            float weight = Mathf.Lerp(extendedWeight, restWeight, elapsedTime / retractDuration);
+            float weight = Mathf.Lerp(_extendedWeight, _restWeight, elapsedTime / retractDuration);
             spring.m_MorphTargets[0].Weight = weight;
 
             elapsedTime += Time.deltaTime;
@@ -148,8 +184,8 @@ public class Movement : MonoBehaviour
         }
 
         // Set the weight to rest weight
-        spring.m_MorphTargets[0].Weight = restWeight;
+        spring.m_MorphTargets[0].Weight = _restWeight;
         
-        retractCoroutine = null;
+        _retractCoroutine = null;
     }
 }
