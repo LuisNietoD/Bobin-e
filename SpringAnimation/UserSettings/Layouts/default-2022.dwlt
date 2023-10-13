@@ -156,10 +156,14 @@ MonoBehaviour:
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   controlID: 143
 >>>>>>> main
 =======
   controlID: 103
+>>>>>>> main
+=======
+  controlID: 43
 >>>>>>> main
 --- !u!114 &6
 MonoBehaviour:
@@ -1196,6 +1200,7 @@ MonoBehaviour:
   m_LastFoldersGridSize: -1
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_LastProjectPath: C:\Users\tomr4\Documents\GitHub\Bobin-e\SpringAnimation
   m_LockTracker:
     m_IsLocked: 0
@@ -1209,10 +1214,14 @@ MonoBehaviour:
 =======
   m_LastProjectPath: C:\Users\prolu\OneDrive\Documents\GitHub\Bobin-e\SpringAnimation
 >>>>>>> main
+=======
+  m_LastProjectPath: C:\Users\prolu\Cours\Atelier de prod\Coil-e\Backup\SpringAnimation
+>>>>>>> main
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 79}
+<<<<<<< HEAD
 <<<<<<< HEAD
     m_SelectedIDs: fe060000
     m_LastClickedID: 1790
@@ -1222,6 +1231,11 @@ MonoBehaviour:
     m_SelectedIDs: 1a670000
     m_LastClickedID: 26394
     m_ExpandedIDs: 0000000016670000186700001a6700001c6700001e67000000ca9a3bffffff7f
+>>>>>>> main
+=======
+    m_SelectedIDs: 26670000
+    m_LastClickedID: 26406
+    m_ExpandedIDs: 00000000226700002467000026670000286700002a67000000ca9a3bffffff7f
 >>>>>>> main
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1250,7 +1264,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000016670000186700001a6700001c6700001e670000
+    m_ExpandedIDs: 00000000226700002467000026670000286700002a670000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
