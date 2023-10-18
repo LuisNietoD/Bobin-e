@@ -3,7 +3,6 @@ using System.Collections;
 using UnityEngine;
 using Physics = UnityEngine.Physics;
 
-
 public class Movement : MonoBehaviour
 {
     [Header("Settings")]
