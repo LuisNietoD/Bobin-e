@@ -10,6 +10,7 @@ public class BombBehavior : MonoBehaviour
     public Vector3 endPoint;
     private float t = 0.0f;
     public GameObject explosion;
+    public GameObject fireArea;
     
     
     private void FixedUpdate()
@@ -30,6 +31,9 @@ public class BombBehavior : MonoBehaviour
             GameObject e = Instantiate(explosion, endPoint, Quaternion.identity);
             e.transform.localScale *= 5;
             t = 0;
+            
+            if(fireArea != null)
+                Instantiate(fireArea, endPoint, Quaternion.identity);
             Destroy(gameObject);
         }
     }

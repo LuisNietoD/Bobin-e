@@ -34,8 +34,11 @@ public class Attack : MonoBehaviour
 
     [Space] [Header("Launch")] 
     public bool launch = false;
+    public bool fire = false;
+    public GameObject fireArea;
 
     public GameObject bombPrefab;
+    public bool alreadyFly;
 
 
     private float t = 0.0f;
@@ -72,24 +75,35 @@ public class Attack : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F))
             {
                 launch = !launch;
+                Debug.Log("LAUNCH MODE = " + launch);
             }
-
-            if (Input.GetKeyDown(KeyCode.E) && aim.activeSelf && _elapsedTime >= DiveCooldown && !launch)
+            
+            if (Input.GetKeyDown(KeyCode.G))
             {
-                Debug.Log("test");
-
-                attacking = true;
-                action = State.Attacking;
-                startPoint = transform.position;
-                endPoint = aim.transform.position;
+                fire = !fire;
+                Debug.Log("NAPALM MODE = " + fire);
             }
-            else if(Input.GetKeyDown(KeyCode.E) && aim.activeSelf && _elapsedTime >= DiveCooldown && launch)
-            {
-                GameObject b = Instantiate(bombPrefab, right.transform.position, Quaternion.identity);
+            
 
-                b.GetComponent<BombBehavior>().startPoint = bomb.transform.position;
-                b.GetComponent<BombBehavior>().endPoint = aim.transform.position;
-                _elapsedTime = 0;
+            if (Input.GetKeyDown(KeyCode.E) && aim.activeSelf && _elapsedTime >= DiveCooldown)
+            {
+                if (!launch)
+                {
+                    attacking = true;
+                    action = State.Attacking;
+                    startPoint = transform.position;
+                    endPoint = aim.transform.position;
+                }
+                else if (launch)
+                {
+                    GameObject b = Instantiate(bombPrefab, right.transform.position, Quaternion.identity);
+
+                    b.GetComponent<BombBehavior>().startPoint = bomb.transform.position;
+                    b.GetComponent<BombBehavior>().endPoint = aim.transform.position;
+                    if (fire)
+                        b.GetComponent<BombBehavior>().fireArea = fireArea;
+                    _elapsedTime = 0;
+                }
             }
 
             if (elapsedTimeTornado > tornadoCooldown)
@@ -148,16 +162,22 @@ public class Attack : MonoBehaviour
                 GameObject e = Instantiate(explosion, endPoint, Quaternion.identity);
                 e.transform.localScale *= 5;
                 t = 0;
+
+                if (fire)
+                {
+                    Instantiate(fireArea, endPoint, Quaternion.identity);
+                }
             }
         }
     }
 
     void flyTrigger()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && flyCoroutine == null)
+        if (Input.GetKeyDown(KeyCode.Space) && flyCoroutine == null && !alreadyFly)
         {
             _rb.velocity = new Vector3(_rb.velocity.x, 0, _rb.velocity.z);
             flyCoroutine = StartCoroutine(Fly());
+            alreadyFly = true;
         }
         else if (Input.GetKeyUp(KeyCode.Space) && flyCoroutine != null)
         {

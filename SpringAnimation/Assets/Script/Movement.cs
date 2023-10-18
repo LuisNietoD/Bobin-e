@@ -12,6 +12,10 @@ public class Movement : MonoBehaviour
     public float rotationSpeed = 0.2f;
     public float retractDuration = 0.3f;
     public float gravity = -9.81f;
+    public float chargedJump = 40;
+    public float chargedTime = 3f;
+    public float elapsedChargedTime = 0f;
+    public bool jumped;
 
     [Space]
     [Header("Needed references")]
@@ -57,6 +61,25 @@ public class Movement : MonoBehaviour
             Move();
         if(_attackRef.action != Attack.State.ChargeJump)
             RetractTest();
+
+        if (Input.GetKeyUp(KeyCode.Space) && !jumped && grounded)
+        {
+            Debug.Log(elapsedChargedTime);
+            _rb.velocity = new Vector3(_rb.velocity.x, 0, _rb.velocity.z);
+            _rb.AddForce(new Vector3(0,  10 + chargedJump * (elapsedChargedTime/chargedTime), 0), ForceMode.Impulse);
+            _bounced = true;
+            jumped = true;
+            elapsedChargedTime = 0;
+            spring.m_MorphTargets[0].Weight = 0.04f;
+            _retracted = false;
+        }
+        
+        if (Input.GetKey(KeyCode.Space) && !jumped)
+        {
+            _bounced = false;
+            elapsedChargedTime = Mathf.Clamp(elapsedChargedTime + Time.deltaTime, 0f, chargedTime);
+            spring.m_MorphTargets[0].Weight = Mathf.Clamp(0.03f - (elapsedChargedTime / chargedTime) * 0.03f, 0.01f, 0.03f);
+        }
     }
 
     /// <summary>
@@ -71,7 +94,7 @@ public class Movement : MonoBehaviour
         // Calculate the movement direction relative to the camera
         Vector3 cameraForward = playerCamera.transform.forward;
         cameraForward.y = 0; 
-
+        
         Vector3 moveDirection = cameraForward.normalized * vertical + playerCamera.transform.right * horizontal;
 
         // Rotate the character
@@ -82,8 +105,11 @@ public class Movement : MonoBehaviour
         }
 
         // Move the character
-        Vector3 velocity = moveDirection.normalized * speed;
-        _rb.velocity = new Vector3(velocity.x, _rb.velocity.y, velocity.z);
+        if (!(Input.GetKey(KeyCode.Space) && grounded))
+        {
+            Vector3 velocity = moveDirection.normalized * speed;
+            _rb.velocity = new Vector3(velocity.x, _rb.velocity.y, velocity.z);
+        }
 
         if (horizontal == 0 && vertical == 0)
         {
@@ -146,9 +172,14 @@ public class Movement : MonoBehaviour
             if(_attackRef.flyCoroutine != null)
                 StopCoroutine(_attackRef.flyCoroutine);
             ResetGravity();
-            _rb.velocity = new Vector3(_rb.velocity.x, 0, _rb.velocity.z);
-            _rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
-            _bounced = true;
+            if (!Input.GetKey(KeyCode.Space))
+            {
+                _rb.velocity = new Vector3(_rb.velocity.x, 0, _rb.velocity.z);
+                _rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
+                _bounced = true;
+            }
+
+            _attackRef.alreadyFly = false;
         }
     }
 
@@ -157,6 +188,7 @@ public class Movement : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             grounded = true;
+            jumped = false;
         }
     }
 

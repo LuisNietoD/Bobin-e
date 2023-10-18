@@ -7,50 +7,74 @@ using UnityEngine.UI;
 
 public class CraftManager : MonoBehaviour
 {
-    public int itemOnHand;
+    public static CraftManager instance;
+    
+    public int itemOnHand = -1;
     public GameObject craftUI;
     public GameObject lastSlot;
     public GameObject cursor;
     public List<Sprite> img;
+    public List<int> stack;
 
-    public void TakeItem()
+    private void Awake()
     {
-        int swapItem = 0;
-        if (itemOnHand != 0)
+        if (instance != null)
         {
-            swapItem = itemOnHand;
-        }
-        itemOnHand = EventSystem.current.currentSelectedGameObject.GetComponent<ItemSlot>().actualItem;
-        if (swapItem == 0)
-        {
-            lastSlot = EventSystem.current.currentSelectedGameObject;
-            lastSlot.SetActive(false);
+            Destroy(this);
         }
         else
         {
-            EventSystem.current.currentSelectedGameObject.GetComponent<ItemSlot>().actualItem = swapItem;
+            instance = this;
         }
-
-        cursor.SetActive(true);
-        cursor.GetComponent<Image>().sprite = img[itemOnHand - 1];
+        
+        stack.Add(2);
+        stack.Add(8);
+        stack.Add(3);
     }
 
-    public void PutItem()
+    private void Start()
     {
         
     }
 
-    public void PutSlot()
+    public void TakeItem(int i)
     {
-        if (itemOnHand != 0)
+        if (itemOnHand == i)
         {
-            lastSlot.GetComponent<ItemSlot>().actualItem = itemOnHand;
-            itemOnHand = 0;
+            stack[itemOnHand]++;
             cursor.SetActive(false);
-            lastSlot.transform.SetAsLastSibling();
-            if (lastSlot != null)
-                lastSlot.SetActive(true);
+            itemOnHand = -1;
+            return;
         }
+        if (stack[i] <= 0)
+        {
+            return;
+        }
+        
+        if (itemOnHand != -1)
+        {
+            stack[itemOnHand]++;
+        }
+
+        
+        itemOnHand = i;
+        stack[itemOnHand]--;
+        cursor.SetActive(true);
+        cursor.GetComponent<Image>().sprite = img[itemOnHand];
+        
+    }
+
+    public void ClearCursor()
+    {
+        itemOnHand = -1;
+        cursor.SetActive(false);
+    }
+
+    public void SetCursor(int item)
+    {
+        itemOnHand = item;
+        cursor.GetComponent<Image>().sprite = img[itemOnHand];
+        cursor.SetActive(true);
     }
 
     private void Update()
@@ -58,10 +82,10 @@ public class CraftManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftAlt))
         {
             craftUI.SetActive(!craftUI.activeSelf);
-            itemOnHand = 0;
+            if(itemOnHand != -1)
+                stack[itemOnHand]++;
+            itemOnHand = -1;
             cursor.SetActive(false);
-            if(lastSlot != null)
-                lastSlot.SetActive(true);
         }
         
         if (craftUI.activeSelf)
