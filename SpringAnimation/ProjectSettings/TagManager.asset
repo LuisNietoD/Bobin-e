@@ -5,10 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
-  - Gear
-  - Cog
-  - Rat
-  - GearBase
   layers:
   - Default
   - TransparentFX
@@ -17,10 +13,10 @@ TagManager:
   - Water
   - UI
   - AimLayer
-  - Cog
-  - Rat
-  - Player
-  - Gear
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
