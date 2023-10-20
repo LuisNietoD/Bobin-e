@@ -11,14 +11,23 @@ public class GearManager : MonoBehaviour
 
     private void Update()
     {
-        if(done)
-            return;
+        
         
         foreach (Gear gear in goals)
         {
-            if(gear.actualSpeed == 0)
+            if (gear.actualSpeed == 0)
+            {
+                if (done)
+                {
+                    done = false;
+                    door.Play("Close");
+                }
                 return;
+            }
         }
+        
+        if(done)
+            return;
         
         door.Play("Open");
         done = true;

@@ -465,7 +465,7 @@ GameObject:
   - component: {fileID: 257535469}
   - component: {fileID: 257535468}
   - component: {fileID: 257535471}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Gear 24
   m_TagString: Gear
   m_Icon: {fileID: 0}
@@ -486,11 +486,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   motor: 0
   goal: 0
+  roll: 1
+  overlap: 0
+  isMovable: 1
   actualSpeed: 0
   actualTorque: 0
   cogs: 0
-  roll: 1
   neighbors: []
+  mainMat: {fileID: 0}
+  wrongPosMaterial: {fileID: 2100000, guid: e556c89a107a21542a6b4ec3c6d5fc9f, type: 2}
+  GoodPosMaterial: {fileID: 2100000, guid: 4aa5898ac17e03f43ba92891a4e39261, type: 2}
+  onHand: 0
 --- !u!114 &257535469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -506,6 +512,7 @@ MonoBehaviour:
   m_cogs: 24
   m_cog: {fileID: 8708570022345348546, guid: e041a1cc14911a546950b2167a724547, type: 3}
   m_body: {fileID: 2192453586291214854, guid: 4b9a4d20c5dc86c4da79347fcc0afebc, type: 3}
+  m_limit: {fileID: 2192453586291214854, guid: 44259f4aefb6d874ea1819fe398d8432, type: 3}
   gearMaterial: {fileID: 2100000, guid: e1db82bfad77b4e41ab5a8ba49c92e49, type: 2}
 --- !u!4 &257535470
 Transform:
@@ -1437,7 +1444,7 @@ GameObject:
   - component: {fileID: 960712079}
   - component: {fileID: 960712078}
   - component: {fileID: 960712077}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Gear 17
   m_TagString: Gear
   m_Icon: {fileID: 0}
@@ -1485,11 +1492,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   motor: 0
   goal: 0
+  roll: 1
+  overlap: 0
+  isMovable: 1
   actualSpeed: 0
   actualTorque: 0
   cogs: 0
-  roll: 1
   neighbors: []
+  mainMat: {fileID: 0}
+  wrongPosMaterial: {fileID: 2100000, guid: e556c89a107a21542a6b4ec3c6d5fc9f, type: 2}
+  GoodPosMaterial: {fileID: 2100000, guid: 4aa5898ac17e03f43ba92891a4e39261, type: 2}
+  onHand: 0
 --- !u!114 &960712079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1505,6 +1518,7 @@ MonoBehaviour:
   m_cogs: 17
   m_cog: {fileID: 8708570022345348546, guid: e041a1cc14911a546950b2167a724547, type: 3}
   m_body: {fileID: 2192453586291214854, guid: 4b9a4d20c5dc86c4da79347fcc0afebc, type: 3}
+  m_limit: {fileID: 2192453586291214854, guid: 44259f4aefb6d874ea1819fe398d8432, type: 3}
   gearMaterial: {fileID: 2100000, guid: e1db82bfad77b4e41ab5a8ba49c92e49, type: 2}
 --- !u!4 &960712080
 Transform:
@@ -1861,7 +1875,7 @@ GameObject:
   - component: {fileID: 1206493366}
   - component: {fileID: 1206493364}
   - component: {fileID: 1206493365}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Objectif (1)
   m_TagString: Gear
   m_Icon: {fileID: 0}
@@ -1882,11 +1896,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   motor: 0
   goal: 0
+  roll: 0
+  overlap: 0
+  isMovable: 0
   actualSpeed: 0
   actualTorque: 0
   cogs: 0
-  roll: 0
   neighbors: []
+  mainMat: {fileID: 0}
+  wrongPosMaterial: {fileID: 2100000, guid: e556c89a107a21542a6b4ec3c6d5fc9f, type: 2}
+  GoodPosMaterial: {fileID: 0}
+  onHand: 0
 --- !u!54 &1206493365
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1929,6 +1949,7 @@ MonoBehaviour:
   m_cogs: 12
   m_cog: {fileID: 8708570022345348546, guid: e041a1cc14911a546950b2167a724547, type: 3}
   m_body: {fileID: 2192453586291214854, guid: 4b9a4d20c5dc86c4da79347fcc0afebc, type: 3}
+  m_limit: {fileID: 2192453586291214854, guid: 44259f4aefb6d874ea1819fe398d8432, type: 3}
   gearMaterial: {fileID: 2100000, guid: 58043f46f5a0da04b86e433c185db486, type: 2}
 --- !u!4 &1206493367
 Transform:
@@ -2303,7 +2324,7 @@ GameObject:
   - component: {fileID: 1475882251}
   - component: {fileID: 1475882249}
   - component: {fileID: 1475882250}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Objectif
   m_TagString: Gear
   m_Icon: {fileID: 0}
@@ -2324,11 +2345,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   motor: 0
   goal: 0
+  roll: 0
+  overlap: 0
+  isMovable: 0
   actualSpeed: 0
   actualTorque: 0
   cogs: 0
-  roll: 0
   neighbors: []
+  mainMat: {fileID: 0}
+  wrongPosMaterial: {fileID: 2100000, guid: e556c89a107a21542a6b4ec3c6d5fc9f, type: 2}
+  GoodPosMaterial: {fileID: 0}
+  onHand: 0
 --- !u!54 &1475882250
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2371,6 +2398,7 @@ MonoBehaviour:
   m_cogs: 12
   m_cog: {fileID: 8708570022345348546, guid: e041a1cc14911a546950b2167a724547, type: 3}
   m_body: {fileID: 2192453586291214854, guid: 4b9a4d20c5dc86c4da79347fcc0afebc, type: 3}
+  m_limit: {fileID: 2192453586291214854, guid: 44259f4aefb6d874ea1819fe398d8432, type: 3}
   gearMaterial: {fileID: 2100000, guid: 58043f46f5a0da04b86e433c185db486, type: 2}
 --- !u!4 &1475882252
 Transform:
@@ -2545,102 +2573,6 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 345216219}
---- !u!1 &1585642784
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1585642786}
-  - component: {fileID: 1585642785}
-  - component: {fileID: 1585642787}
-  - component: {fileID: 1585642788}
-  m_Layer: 0
-  m_Name: Gear
-  m_TagString: Gear
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1585642785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1585642784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e5a5ebf1d6e6ca4497e8d9d13b2c8d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_cogs: 12
-  m_cog: {fileID: 8708570022345348546, guid: e041a1cc14911a546950b2167a724547, type: 3}
-  m_body: {fileID: 2192453586291214854, guid: 4b9a4d20c5dc86c4da79347fcc0afebc, type: 3}
-  gearMaterial: {fileID: 2100000, guid: 2edcbfc3815e3a94ab7b4e3a03b3f39d, type: 2}
---- !u!4 &1585642786
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1585642784}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.91, y: 1.120173, z: 3.3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1585642787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1585642784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebc113b5a9be0554899a67d49e0b5706, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  motor: 1
-  goal: 0
-  actualSpeed: 50
-  actualTorque: 50
-  cogs: 0
-  roll: 1
-  neighbors: []
---- !u!54 &1585642788
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1585642784}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 62
-  m_CollisionDetection: 0
 --- !u!1 &1619583820
 GameObject:
   m_ObjectHideFlags: 3
@@ -3023,6 +2955,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1815711389}
   - component: {fileID: 1815711388}
+  - component: {fileID: 1815711390}
   m_Layer: 0
   m_Name: GearManager
   m_TagString: Untagged
@@ -3062,6 +2995,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1815711390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815711387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa89d308bc0d8c34fbc4fbcd44d8ed1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gearLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  cam: {fileID: 961739752}
+  z: 3.99
 --- !u!1 &1917810983
 GameObject:
   m_ObjectHideFlags: 0
@@ -3245,7 +3195,7 @@ GameObject:
   - component: {fileID: 2079252752}
   - component: {fileID: 2079252751}
   - component: {fileID: 2079252750}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Gear 17
   m_TagString: Gear
   m_Icon: {fileID: 0}
@@ -3293,11 +3243,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   motor: 0
   goal: 0
+  roll: 1
+  overlap: 0
+  isMovable: 1
   actualSpeed: 0
   actualTorque: 0
   cogs: 0
-  roll: 1
   neighbors: []
+  mainMat: {fileID: 0}
+  wrongPosMaterial: {fileID: 2100000, guid: e556c89a107a21542a6b4ec3c6d5fc9f, type: 2}
+  GoodPosMaterial: {fileID: 2100000, guid: 4aa5898ac17e03f43ba92891a4e39261, type: 2}
+  onHand: 0
 --- !u!114 &2079252752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3313,6 +3269,7 @@ MonoBehaviour:
   m_cogs: 17
   m_cog: {fileID: 8708570022345348546, guid: e041a1cc14911a546950b2167a724547, type: 3}
   m_body: {fileID: 2192453586291214854, guid: 4b9a4d20c5dc86c4da79347fcc0afebc, type: 3}
+  m_limit: {fileID: 2192453586291214854, guid: 44259f4aefb6d874ea1819fe398d8432, type: 3}
   gearMaterial: {fileID: 2100000, guid: e1db82bfad77b4e41ab5a8ba49c92e49, type: 2}
 --- !u!4 &2079252753
 Transform:
@@ -3436,6 +3393,71 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2092690209}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &4189588178503277137
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2459368347360981131, guid: 8aa2e5180bdaa744986d8c882f8880b5, type: 3}
+      propertyPath: m_Name
+      value: Gear
+      objectReference: {fileID: 0}
+    - target: {fileID: 2459368347360981131, guid: 8aa2e5180bdaa744986d8c882f8880b5, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5455225477419382154, guid: 8aa2e5180bdaa744986d8c882f8880b5, type: 3}
+      propertyPath: wrongPosMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 2edcbfc3815e3a94ab7b4e3a03b3f39d, type: 2}
+    - target: {fileID: 6175973486338306143, guid: 8aa2e5180bdaa744986d8c882f8880b5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 6175973486338306143, guid: 8aa2e5180bdaa744986d8c882f8880b5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.120173
+      objectReference: {fileID: 0}
+    - target: {fileID: 6175973486338306143, guid: 8aa2e5180bdaa744986d8c882f8880b5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6175973486338306143, guid: 8aa2e5180bdaa744986d8c882f8880b5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6175973486338306143, guid: 8aa2e5180bdaa744986d8c882f8880b5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6175973486338306143, guid: 8aa2e5180bdaa744986d8c882f8880b5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6175973486338306143, guid: 8aa2e5180bdaa744986d8c882f8880b5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6175973486338306143, guid: 8aa2e5180bdaa744986d8c882f8880b5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6175973486338306143, guid: 8aa2e5180bdaa744986d8c882f8880b5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6175973486338306143, guid: 8aa2e5180bdaa744986d8c882f8880b5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8aa2e5180bdaa744986d8c882f8880b5, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -3446,7 +3468,7 @@ SceneRoots:
   - {fileID: 24795855}
   - {fileID: 372630201}
   - {fileID: 1701496782}
-  - {fileID: 1585642786}
+  - {fileID: 4189588178503277137}
   - {fileID: 257535470}
   - {fileID: 960712080}
   - {fileID: 2079252753}

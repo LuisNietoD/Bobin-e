@@ -66,14 +66,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _HalfToneNoiseMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 1.22, y: 1}
         m_Offset: {x: 0, y: 0}
     - _HalfTonePatternMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _HatchingNoiseMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 1a5ec58190d149942be145bc53f75ec8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -127,8 +127,8 @@ Material:
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BlendOp: 0
-    - _BrushLowerCut: 0
-    - _BrushSize: 0.8
+    - _BrushLowerCut: 0.15
+    - _BrushSize: 0.43
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -155,21 +155,21 @@ Material:
     - _HairSpecNoiseStrength: 1
     - _HairSpecularSize: 0.8
     - _HairSpecularSmoothness: 0.1
-    - _HalfToneDiffuseStep: 0
+    - _HalfToneDiffuseStep: -0.04
     - _HalfToneEnabled: 0
     - _HalfToneIncludeReceivedShadow: 0
     - _HalfToneShape: 0
     - _HalfToneUvMode: 0
-    - _HalftoneFadeDistance: 10
-    - _HalftoneFadeToColor: 0
-    - _HalftoneNoiseClip: 0.8
+    - _HalftoneFadeDistance: 19.1
+    - _HalftoneFadeToColor: 0.232
+    - _HalftoneNoiseClip: 0.2
     - _HalftoneTilling: 8
     - _HatchingDensity: 1
     - _HatchingDiffuseOffset: 0
-    - _HatchingDrawStrength: 1
-    - _HatchingEnabled: 0
-    - _HatchingRotation: 0
-    - _HatchingSmoothness: 0.1
+    - _HatchingDrawStrength: 2.3
+    - _HatchingEnabled: 1
+    - _HatchingRotation: 13.6
+    - _HatchingSmoothness: 0.404
     - _Metallic: 0.5
     - _Mode: 0
     - _NoiseScale: 1
@@ -191,7 +191,7 @@ Material:
     - _RimTreshhold: 0.1
     - _SampleGI: 0
     - _Shininess: 0
-    - _SizeFalloff: 0
+    - _SizeFalloff: 0.174
     - _Smoothness: 0.2
     - _SmoothnessSource: 0
     - _SmoothnessTextureChannel: 0
@@ -222,7 +222,7 @@ Material:
     - _FaceFrontDirection: {r: 0, g: 0, b: 1, a: 0}
     - _FaceRightDirection: {r: 1, g: 0, b: 0, a: 0}
     - _HairSpecColor: {r: 0, g: 0, b: 0, a: 1}
-    - _HalfToneColor: {r: 0, g: 0, b: 0, a: 1}
+    - _HalfToneColor: {r: 0, g: 0, b: 0, a: 0.655}
     - _HatchingColor: {r: 0, g: 0, b: 0, a: 1}
     - _MainColor: {r: 0.23584908, g: 0.23584908, b: 0.23584908, a: 0}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
