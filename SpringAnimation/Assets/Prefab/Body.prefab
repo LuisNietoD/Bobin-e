@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8052843692178615848}
   - component: {fileID: 8200586890407216850}
   - component: {fileID: 7837038930876681916}
-  m_Layer: 10
-  m_Name: Limit
+  m_Layer: 0
+  m_Name: Body
   m_TagString: Gear
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
