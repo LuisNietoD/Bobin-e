@@ -34,6 +34,8 @@ public class Wazo : MonoBehaviour, IEnemy
     public GameObject catchedRat;
     public GameObject ratAgent;
 
+    public float waitTime;
+
     private void Awake()
     {
         player = GameObject.Find("PlayerObj").transform;
@@ -61,7 +63,10 @@ public class Wazo : MonoBehaviour, IEnemy
         if (!walkPointSet) SearchWalkPoint();
 
         if (walkPointSet)
+        {
+            Debug.Log("test");
             agent.SetDestination(walkPoint);
+        }
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
@@ -77,7 +82,7 @@ public class Wazo : MonoBehaviour, IEnemy
 
         walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
 
-        if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
+        if (Physics.Raycast(walkPoint, -transform.up, 5f, whatIsGround))
             walkPointSet = true;
     }
 
@@ -120,16 +125,17 @@ public class Wazo : MonoBehaviour, IEnemy
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.gameObject.CompareTag("Rat") && !gotRat)
+        if (collision.gameObject.CompareTag("Rat") && !gotRat)
         {
-            
-            Destroy(other.gameObject);
+            Destroy(collision.gameObject);
             catchedRat.SetActive(true);
             gotRat = true;
-        }    
+        }
     }
+
+    
 
     private void ResetAttack()
     {
