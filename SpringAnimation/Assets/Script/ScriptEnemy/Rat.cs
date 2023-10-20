@@ -37,7 +37,7 @@ public class Rat : MonoBehaviour,IEnemy
 
     private void Awake()
     {
-        player = GameObject.Find("PlayerObj").transform;
+        player = GameObject.Find("Character").transform;
         agent = GetComponent<NavMeshAgent>();
     }
 
@@ -148,6 +148,14 @@ public class Rat : MonoBehaviour,IEnemy
         if (other.CompareTag("wazo"))
         {
             Destroy(gameObject);
+        }
+        if (other.CompareTag("Attack"))
+        {
+            TakeDamage(10);
+            if (vie <= 0)
+            {
+                Die();
+            }
         }
     }
 
