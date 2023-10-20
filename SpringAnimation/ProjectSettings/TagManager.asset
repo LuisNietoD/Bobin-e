@@ -5,12 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
-<<<<<<< HEAD
   - Gear
   - Cog
   - Rat
-=======
->>>>>>> parent of 0c2d52ae (Merge branch 'main' into int)
   layers:
   - Default
   - TransparentFX
@@ -19,15 +16,9 @@ TagManager:
   - Water
   - UI
   - AimLayer
-<<<<<<< HEAD
   - Cog
   - Rat
   - Player
-=======
-  - 
-  - 
-  - 
->>>>>>> parent of 0c2d52ae (Merge branch 'main' into int)
   - 
   - 
   - 
