@@ -10,6 +10,7 @@ public class GearGenerator : MonoBehaviour
     public int m_cogs = 10;
     public GameObject m_cog;
     public GameObject m_body;
+    public GameObject m_limit;
     private float m_radiusFactor = 21f;
     private float m_bodyscale = 1.75f;
     public Material gearMaterial;
@@ -59,7 +60,7 @@ public class GearGenerator : MonoBehaviour
         //collider
         float colliderS = 2.4f + ((1 - (m_cogs - 12) / (24 - 12)) * 0.2f);
         float colliderScale = (radius * 1f) * colliderS;
-        var collider = Instantiate(m_body, transform.position, Quaternion.identity);
+        var collider = Instantiate(m_limit, transform.position, Quaternion.identity);
         collider.transform.parent = transform;
 
         collider.transform.localPosition = new Vector3(0, 0, 0.08f);
@@ -68,5 +69,7 @@ public class GearGenerator : MonoBehaviour
         collider.GetComponent<MeshRenderer>().enabled = false;
 
         GetComponent<Gear>().cogs = m_cogs;
+
+        GetComponent<Gear>().mainMat = gearMaterial;
     }
 }
