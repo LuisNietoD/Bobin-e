@@ -30,9 +30,14 @@ public class Ouvrier : MonoBehaviour, IEnemy
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
+    public float tempsEcoule = 0f;
+    public float intervalle = 1f;
+
+    public int attaque = 20;
+
     private void Awake()
     {
-        player = GameObject.Find("PlayerObj").transform;
+        player = GameObject.Find("Character").transform;
         agent = GetComponent<NavMeshAgent>();
     }
 
@@ -82,15 +87,16 @@ public class Ouvrier : MonoBehaviour, IEnemy
         //Make sure enemy doesn't move
         agent.SetDestination(transform.position);
 
-        transform.LookAt(player);
+        Vector3 aim = new Vector3(player.position.x, transform.position.y, player.position.z);
+        transform.LookAt(aim);
 
         if (!alreadyAttacked)
         {
 
             //Attack code here
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 8f, ForceMode.Impulse);
+            //Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+            //rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
+            //rb.AddForce(transform.up * 8f, ForceMode.Impulse);
 
             // 
 
@@ -102,6 +108,23 @@ public class Ouvrier : MonoBehaviour, IEnemy
     private void ResetAttack()
     {
         alreadyAttacked = false;
+    }
+
+
+    private void OnTriggerStay(Collider other)
+    {
+        test caca = other.GetComponent<test>();
+        if (caca != null)
+        {
+            tempsEcoule += Time.deltaTime;
+
+            if (tempsEcoule >= intervalle)
+            {
+                caca.Coiffeur(attaque);
+
+                tempsEcoule = 0f;
+            }
+        }
     }
 
 
@@ -121,6 +144,18 @@ public class Ouvrier : MonoBehaviour, IEnemy
     {
         Destroy(gameObject);
         Debug.Log("Ouvrier est mort");
+    }
+    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Attack"))
+        {
+            TakeDamage(10);
+            if (vie <= 0)
+            {
+                Die();
+            }
+        }
     }
 
 }

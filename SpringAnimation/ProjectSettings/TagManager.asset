@@ -5,6 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Gear
+  - Cog
+  - Rat
+  - GearBase
+  - PickUp
+  - rat
+  - wazo
+  - Attack
   layers:
   - Default
   - TransparentFX
@@ -13,13 +21,13 @@ TagManager:
   - Water
   - UI
   - AimLayer
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Cog
+  - Rat
+  - Player
+  - Gear
+  - PickUp
+  - Enemy
+  - Attack
   - 
   - 
   - 
