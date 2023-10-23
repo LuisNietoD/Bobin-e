@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -32,7 +33,7 @@ public class Gros : MonoBehaviour, IEnemy
 
     private void Awake()
     {
-        player = GameObject.Find("PlayerObj").transform;
+        player = GameObject.Find("Character").transform;
         agent = GetComponent<NavMeshAgent>();
     }
 
@@ -124,4 +125,15 @@ public class Gros : MonoBehaviour, IEnemy
 
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Attack"))
+        {
+            TakeDamage(10);
+            if (vie <= 0)
+            {
+                Die();
+            }
+        }
+    }
 }

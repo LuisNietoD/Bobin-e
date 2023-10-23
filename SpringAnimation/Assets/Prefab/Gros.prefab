@@ -160,11 +160,11 @@ MonoBehaviour:
     m_Bits: 8
   whatIsPlayer:
     serializedVersion: 2
-    m_Bits: 640
+    m_Bits: 512
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 5
   timeBetweenAttacks: 2
-  projectile: {fileID: 0}
+  projectile: {fileID: 276963169067526504, guid: 52238a105c17bf041bae1850396ee406, type: 3}
   sightRange: 15
   attackRange: 5
   playerInSightRange: 0

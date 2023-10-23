@@ -9,6 +9,10 @@ TagManager:
   - Cog
   - Rat
   - GearBase
+  - PickUp
+  - rat
+  - wazo
+  - Attack
   layers:
   - Default
   - TransparentFX
@@ -22,8 +26,8 @@ TagManager:
   - Player
   - Gear
   - PickUp
-  - 
-  - 
+  - Enemy
+  - Attack
   - 
   - 
   - 
