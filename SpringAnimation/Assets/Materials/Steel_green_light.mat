@@ -141,8 +141,8 @@ Material:
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BlendOp: 0
-    - _BrushLowerCut: 0
-    - _BrushSize: 0.8
+    - _BrushLowerCut: 0.088
+    - _BrushSize: 1
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -169,15 +169,15 @@ Material:
     - _HairSpecNoiseStrength: 1
     - _HairSpecularSize: 0.8
     - _HairSpecularSmoothness: 0.1
-    - _HalfToneDiffuseStep: 0
+    - _HalfToneDiffuseStep: -0.54
     - _HalfToneEnabled: 0
-    - _HalfToneIncludeReceivedShadow: 0
+    - _HalfToneIncludeReceivedShadow: 1
     - _HalfToneShape: 0
     - _HalfToneUvMode: 0
-    - _HalftoneFadeDistance: 10
-    - _HalftoneFadeToColor: 0
-    - _HalftoneNoiseClip: 0.8
-    - _HalftoneTilling: 8
+    - _HalftoneFadeDistance: 13.5
+    - _HalftoneFadeToColor: 0.125
+    - _HalftoneNoiseClip: 7
+    - _HalftoneTilling: 1
     - _HatchingDensity: 1
     - _HatchingDiffuseOffset: 0
     - _HatchingDrawStrength: 1
