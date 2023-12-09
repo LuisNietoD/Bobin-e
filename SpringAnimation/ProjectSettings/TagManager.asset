@@ -9,14 +9,6 @@ TagManager:
   - Cog
   - Rat
   - GearBase
-  - PickUp
-  - Attack
-  - Void
-  - Teleporter
-  - Flamable
-  - Door
-  - Bird
-  - EnemyAttack
   layers:
   - Default
   - TransparentFX
@@ -30,12 +22,12 @@ TagManager:
   - Player
   - Gear
   - PickUp
-  - Enemy
-  - Attack
-  - Spring
-  - Obstacle
-  - MouseBlock
-  - EnemyAttack
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 466267985183371101}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,13 +43,10 @@ GameObject:
   - component: {fileID: 8493486826644922869}
   - component: {fileID: 8266242482560597768}
   - component: {fileID: 5976871032087208427}
-  - component: {fileID: 9097857558999554859}
+  - component: {fileID: 2388343581391359686}
   - component: {fileID: 1170591027790353283}
   - component: {fileID: 9067513454638463667}
-  - component: {fileID: 5282346238797256151}
-  - component: {fileID: 2748473411008664045}
-  - component: {fileID: 7312406285577706643}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Gros
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +97,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 18837561070f7ae4b85e18cba5e39200, type: 2}
+  - {fileID: 2100000, guid: a54b7ad866d3a9b47bbf3b53baa0acc4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -143,7 +140,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &9097857558999554859
+--- !u!114 &2388343581391359686
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -152,33 +149,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 4415303973423648420}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75a16356efe70274cb2c394ebafb3f8f, type: 3}
+  m_Script: {fileID: 11500000, guid: fb1e91f1b08791c49a4d9d84d7a46701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vie: 100
   agent: {fileID: 1170591027790353283}
-  walkPoint: {x: 0, y: 0, z: 0}
-  walkPointSet: 0
-  walkPointRange: 5
-  playerInSightRange: 0
+  player: {fileID: 0}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
   whatIsPlayer:
     serializedVersion: 2
-    m_Bits: 512
-  player: {fileID: 0}
-  sightRange: 20
-  rats: []
-  caughtRat: {fileID: 0}
-  ratAgent: {fileID: 0}
-  ratLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  birdchasing: 0
-  gotRat: 0
-  attackRange: 15
-  attackPattern: {fileID: 0}
+    m_Bits: 640
+  walkPoint: {x: 0, y: 0, z: 0}
+  walkPointRange: 5
+  timeBetweenAttacks: 2
+  projectile: {fileID: 0}
+  sightRange: 15
+  attackRange: 5
+  playerInSightRange: 0
   playerInAttackRange: 0
+  BulletSpawnPoint: {fileID: 466267985183371101}
 --- !u!195 &1170591027790353283
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -228,48 +219,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 32
   m_CollisionDetection: 0
---- !u!114 &5282346238797256151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4415303973423648420}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e07e37bd20182094e96135cb819c6bd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeBetweenAttacks: 1
-  projectile: {fileID: 276963169067526504, guid: f2090433aecdcb7459da85237940d93f, type: 3}
-  player: {fileID: 0}
---- !u!114 &2748473411008664045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4415303973423648420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b182c62e7f78aa4f9b68a82fe4bc650, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: {fileID: 5282346238797256151}
---- !u!114 &7312406285577706643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4415303973423648420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84cb0c0a74eaa0a47b78cd68f3841228, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  life: 3
-  invincibilityTime: 0.3
-  invincibilityActual: 0.3
-  tag: Attack
-  enemy: 1
