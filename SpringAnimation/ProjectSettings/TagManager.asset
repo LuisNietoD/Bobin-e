@@ -10,9 +10,13 @@ TagManager:
   - Rat
   - GearBase
   - PickUp
-  - rat
-  - wazo
   - Attack
+  - Void
+  - Teleporter
+  - Flamable
+  - Door
+  - Bird
+  - EnemyAttack
   layers:
   - Default
   - TransparentFX
@@ -28,10 +32,10 @@ TagManager:
   - PickUp
   - Enemy
   - Attack
-  - 
-  - 
-  - 
-  - 
+  - Spring
+  - Obstacle
+  - MouseBlock
+  - EnemyAttack
   - 
   - 
   - 

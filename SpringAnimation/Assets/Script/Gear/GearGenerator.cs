@@ -42,7 +42,7 @@ public class GearGenerator : MonoBehaviour
         {
             var cog = Instantiate(m_cog, transform.position, Quaternion.identity);
             cog.transform.parent = transform;
-            cog.transform.eulerAngles = new Vector3(0, 0, step * i + 90);
+            cog.transform.localEulerAngles = new Vector3(0, 0, step * i + 90);
             cog.transform.position += cog.transform.up * radius;
             cog.GetComponent<Renderer>().material = gearMaterial;
         }
@@ -53,7 +53,7 @@ public class GearGenerator : MonoBehaviour
 
         body.transform.localPosition = new Vector3(0, 0, 0.08f);
         body.transform.localScale = new Vector3(bodyScale, 0.1f, bodyScale);
-        body.transform.eulerAngles = new Vector3(90, 0, 0);
+        body.transform.localEulerAngles = new Vector3(90, 0, 0);
         body.GetComponent<Renderer>().material = gearMaterial;
 
         
@@ -65,7 +65,7 @@ public class GearGenerator : MonoBehaviour
 
         collider.transform.localPosition = new Vector3(0, 0, 0.08f);
         collider.transform.localScale = new Vector3(colliderScale, 0.1f, colliderScale);
-        collider.transform.eulerAngles = new Vector3(90, 0, 0);
+        collider.transform.localEulerAngles = new Vector3(90, 0, 0);
         collider.GetComponent<MeshRenderer>().enabled = false;
 
         GetComponent<Gear>().cogs = m_cogs;

@@ -9,11 +9,28 @@ public class CoilSlot : MonoBehaviour
     public int actualItem = -1;
     public CraftManager craftManager;
     public Image img;
+    public KeyCode action;
+    public AttackBehavior actualAttack;
+    public LayerMask enemyMask;
+    public ParticleSystem flame;
 
     private void Start()
     {
+        actualAttack = new Flamethrower();
+        actualAttack.StartMethods(gameObject);
         craftManager = CraftManager.instance;
         img = transform.GetChild(0).GetComponent<Image>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(action) && actualAttack != null)
+        {
+            actualAttack.Action();
+        }
+        
+        if(actualAttack != null)
+            actualAttack.UpdateMethods();
     }
 
     public void ClickOnSlot()

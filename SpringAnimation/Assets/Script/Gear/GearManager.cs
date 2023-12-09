@@ -8,11 +8,10 @@ public class GearManager : MonoBehaviour
     public Animator door;
     public List<Gear> goals = new List<Gear>();
     public bool done;
+    public CogGameScript cgs;
 
     private void Update()
     {
-        
-        
         foreach (Gear gear in goals)
         {
             if (gear.actualSpeed == 0)
@@ -31,5 +30,9 @@ public class GearManager : MonoBehaviour
         
         door.Play("Open");
         done = true;
+        cgs.ShowAll();
+        GameManager.instance.ChangeCamera(GameManager.instance.playerCam);
     }
+    
+    
 }

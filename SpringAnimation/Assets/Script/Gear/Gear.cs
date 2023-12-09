@@ -24,7 +24,7 @@ public class Gear : MonoBehaviour
     private void FixedUpdate()
     {
         if(roll && !onHand)
-            transform.eulerAngles = new Vector3(transform.rotation.x, transform.rotation.y, transform.eulerAngles.z + actualSpeed * Time.deltaTime);
+            transform.localEulerAngles = new Vector3(transform.rotation.x, transform.rotation.y, transform.eulerAngles.z + actualSpeed * Time.deltaTime);
     
         if(!onHand)
             ChangeMaterial(mainMat);

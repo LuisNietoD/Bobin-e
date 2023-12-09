@@ -11,10 +11,10 @@ public class CameraMov : MonoBehaviour
 
     private void Update()
     {
-        if (movement.grounded == true)
-        {
-            me = player.position.y + 2.5f;
-        }
+        //if (movement.grounded == true)
+        //{
+        //    me = player.position.y + 2.5f;
+        //}
 
         transform.position = new Vector3(player.transform.position.x, me, player.transform.position.z);
 
