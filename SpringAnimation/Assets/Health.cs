@@ -7,12 +7,13 @@ using UnityEngine.SceneManagement;
 public class Health : MonoBehaviour
 {
     public int life = 2;
+    [Space]
     public float invincibilityTime = 0.3f;
-    public float invincibilityActual = 0.6f;
     public string tag;
-    public bool hit;
-
+    [Space] public Animator modelAnimator;
     
+    private bool hit;
+    private float invincibilityActual = 0.3f;
 
     private void Update()
     {
@@ -36,19 +37,11 @@ public class Health : MonoBehaviour
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
+        }
 
-            transform.DOLocalMoveY(0.5f, 0.2f)
-                .SetEase(Ease.OutQuad) // Choose an ease function for the jump
-                .OnComplete(() =>
-                {
-                    // Return to the ground
-                    transform.DOLocalMoveY(0, 0.1f)
-                        .SetEase(Ease.InQuad)
-                        .OnComplete(() =>
-                        {
-                            hit = false;
-                        });
-                });
+        if (other.CompareTag("Void"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }

@@ -36,6 +36,8 @@ public class Movement : MonoBehaviour
     public Rigidbody _rb;
     private Attack _attackRef;
 
+    public CameraMov camMov;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,11 +55,11 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        if (!GameManager.instance.canMove)
-        {
-            _rb.velocity = Vector3.zero;
-            return;
-        }
+        //if (!GameManager.instance.lockPlayer)
+        //{
+        //    _rb.velocity = Vector3.zero;
+         //   return;
+        //}
 
         if (_attackRef.action == Attack.State.Nothing)
             Move();
@@ -193,6 +195,9 @@ public class Movement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
+            camMov.me = transform.position.y;
+            Debug.Log(camMov.me);
+
             grounded = true;
             jumped = false;
         }

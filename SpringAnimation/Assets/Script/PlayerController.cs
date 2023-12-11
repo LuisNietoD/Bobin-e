@@ -1,37 +1,44 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
-    public float bounceHeight = 2f; // Set the jump height here
-    public float bounceDuration = 0.5f; // Set the duration of the jump animation
     public float speed = 5f;
     public float rotationSpeed = 0.2f;
+    public float jumpForce = 8;
     
     [Header("Needed references")]
     public Camera playerCamera;
-    
-    [HideInInspector]
+    public Animator modelAnimator;
+
+        [HideInInspector]
     public bool grounded = true;
 
     private Rigidbody _rb;
-
-    private void Start()
+    
+    private void OnEnable()
     {
-        _rb = GetComponent<Rigidbody>();
+        MenuManager.OnOpenPauseMenu += DisableAnimation;
+        MenuManager.OnClosePauseMenu += EnableAnimation;
     }
+
+    private void OnDisable()
+    {
+        MenuManager.OnOpenPauseMenu -= DisableAnimation;
+        MenuManager.OnClosePauseMenu -= EnableAnimation;
+    }
+
+    private void Start() => _rb = GetComponent<Rigidbody>();
 
     private void Update()
     {
-        Move();
-        if(grounded)
-            Bounce();
-    }
+        if(GameManager.isPlayerLock)
+            return;
 
+        
+        
+        Move();
+    }
 
     private void Move()
     {
@@ -46,40 +53,31 @@ public class PlayerController : MonoBehaviour
         
         RotateCharacter(moveDirection);
 
-        bool inJumpPreparation = Input.GetKey(KeyCode.Space) && grounded;
-
         // Move the character
-        if (!inJumpPreparation)
+        Vector3 velocity = moveDirection.normalized * speed;
+        _rb.velocity = new Vector3(velocity.x, _rb.velocity.y, velocity.z);
+        
+        bool doJump = Input.GetKeyDown(KeyCode.Space) && grounded;
+        
+        if (doJump)
         {
-            Vector3 velocity = moveDirection.normalized * speed;
-            _rb.velocity = new Vector3(velocity.x, _rb.velocity.y, velocity.z);
+            Jump();
         }
 
         //If no input stop instantly the character
         if (horizontal == 0 && vertical == 0)
         {
             _rb.velocity = new Vector3(0, _rb.velocity.y, 0);
+            modelAnimator.SetBool("isMoving", false);
+        }
+        else
+        {
+            modelAnimator.SetBool("isMoving", true);
         }
     }
 
-    public void Bounce()
-    {
-        grounded = false;
-        transform.DOMoveY(transform.position.y + bounceHeight, bounceDuration)
-            .SetEase(Ease.OutQuad) // Choose an ease function for the jump
-            .OnComplete(() =>
-            {
-                // Return to the ground
-                transform.DOMoveY(transform.position.y - bounceHeight, bounceDuration / 2)
-                    .SetEase(Ease.InQuad);
-                
-            });
-    }
-
-    public void Jump()
-    {
-        
-    }
+    public void Jump() => _rb.AddForce(jumpForce * Vector3.up, ForceMode.Impulse);
+    
     
     
     //Ground check
@@ -88,6 +86,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             grounded = true;
+            TargetPosition.y = transform.position.y;
         }
     }
     
@@ -106,5 +105,17 @@ public class PlayerController : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
+    }
+
+    public void EnableAnimation()
+    {
+        modelAnimator.enabled = true;
+        GameManager.isPlayerLock = false;
+    }
+
+    public void DisableAnimation()
+    {
+        modelAnimator.enabled = false;
+        GameManager.isPlayerLock = true;
     }
 }

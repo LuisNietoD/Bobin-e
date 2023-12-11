@@ -5,18 +5,21 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
-    public CraftManager craftManager;
-
-    private void Start()
-    {
-        craftManager = CraftManager.instance;
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("PickUp"))
         {
-            craftManager.stack[other.GetComponent<PickUpItem>().GetID()]++;
+            PickUpItem item = other.GetComponent<PickUpItem>();
+            if (item != null)
+            {
+                if (item.isWeapon)
+                {
+                    item.isWeapon = false;
+                    item.weapon.numberOfWeapon++;
+                }
+
+                Destroy(other.gameObject);
+            }
         }
     }
 }

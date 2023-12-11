@@ -64,6 +64,7 @@ public class Attack : MonoBehaviour
     {
         _movementRef = GetComponent<Movement>();
         _rb = GetComponent<Rigidbody>();
+        Debug.Log(action);
     }
 
     private void Update()

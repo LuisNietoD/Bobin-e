@@ -7,7 +7,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public Camera playerCam;
-    public bool canMove = true;
+    public static bool isPlayerLock = false;
+    public LayerMask enemyMask;
+
 
     private void Awake()
     {
@@ -21,14 +23,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        isPlayerLock = false;
+        Cursor.lockState = CursorLockMode.Locked; // Lock the cursor to the game window
+        Cursor.visible = false; // Hide the cursor
+    }
+
     private void Update()
     {
-        Debug.Log(Camera.main);
-        Debug.Log(playerCam);
-        if (Camera.main == playerCam)
-            canMove = true;
-        else
-            canMove = false;
+        Debug.Log(isPlayerLock);
+        
 
     }
 

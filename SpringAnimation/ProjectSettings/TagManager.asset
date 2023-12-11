@@ -9,6 +9,11 @@ TagManager:
   - Cog
   - Rat
   - GearBase
+  - Attack
+  - Void
+  - Teleporter
+  - EnemyAttack
+  - PickUp
   layers:
   - Default
   - TransparentFX
@@ -22,11 +27,11 @@ TagManager:
   - Player
   - Gear
   - PickUp
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Attack
+  - Void
+  - Teleporter
+  - Spring
+  - Enemy
   - 
   - 
   - 

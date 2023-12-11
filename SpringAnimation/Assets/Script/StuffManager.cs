@@ -14,37 +14,7 @@ public class StuffManager : MonoBehaviour
     public CoilSlot item2;
     
 
-    public void UpStuff()
-    {
-        if (item1.actualItem == -1 || item2.actualItem == -1)
-        {
-            if (item1 == item2)
-            {
-                foreach (Transform child in slotsTransform.transform)
-                {
-                    Destroy(child);
-                }
-                return;
-            }
-
-            if (item1.actualItem > -1)
-            {
-                foreach (Transform child in slotsTransform.transform)
-                {
-                    Destroy(child);
-                }
-                GameObject s = Instantiate(getObj(item1.actualItem), slotsTransform.transform);
-            }
-            if (item2.actualItem > -1)
-            {
-                foreach (Transform child in slotsTransform.transform)
-                {
-                    Destroy(child);
-                }
-                GameObject s = Instantiate(getObj(item1.actualItem), slotsTransform.transform);
-            }
-        }
-    }
+  
 
     public GameObject getObj(int obj)
     {

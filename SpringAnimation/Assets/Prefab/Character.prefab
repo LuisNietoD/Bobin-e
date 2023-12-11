@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6521761753294900231}
-  - component: {fileID: 7458447642440731405}
   m_Layer: 0
   m_Name: Right
   m_TagString: Untagged
@@ -34,25 +33,6 @@ Transform:
   - {fileID: 7448771335146400277}
   m_Father: {fileID: 1259820799670970870}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7458447642440731405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2060307160786910348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e41793dc6ece7e8459df349514196439, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flamethrowerParticles: {fileID: 3433562728048082103}
-  castRadius: 0.5
-  castDistance: 10
-  hitLayerMask:
-    serializedVersion: 2
-    m_Bits: 0
-  castPoint: {fileID: 0}
 --- !u!1 &3455049788829882845
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,6 +180,8 @@ MonoBehaviour:
   minRayDistance: 0.1
   grounded: 1
   _bounced: 0
+  _rb: {fileID: 0}
+  camMov: {fileID: 0}
 --- !u!114 &8483597401229281364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -542,11 +524,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5bc1820a3de47d438fe54883b98323b, type: 3}
---- !u!198 &3433562728048082103 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 2460391332094005154, guid: e5bc1820a3de47d438fe54883b98323b, type: 3}
-  m_PrefabInstance: {fileID: 973736270074901269}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9172343746203520397 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8271373022527946392, guid: e5bc1820a3de47d438fe54883b98323b, type: 3}

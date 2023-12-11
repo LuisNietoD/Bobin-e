@@ -8,28 +8,25 @@ using Random = UnityEngine.Random;
 
 public class ItemSlot : MonoBehaviour
 {
-    public int actualItem;
-    public List<Sprite> itemImg;
-    public Image img;
-    public TextMeshProUGUI stackText;
+    public WeaponData weapon;
+    public Image icon;
+    public GameObject equipButton;
+    public CoilSlot slotInGame;
 
-    private void Awake()
+    public void Equip()
     {
-        img = transform.GetChild(0).GetComponent<Image>();
-        stackText = transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        weapon = InventoryManager.instance.selectedSlot.weapon;
+        weapon.numberOfWeapon--;
+        equipButton.SetActive(false);
+        if(weapon.numberOfWeapon <= 0)
+            InventoryManager.instance.ShowEquipUI(false);
+        icon.sprite = weapon.weaponIcon;
+        icon.enabled = true;
         
-        img.sprite = itemImg[actualItem];
-    }
-
-    private void Start()
-    {
-        stackText.text = CraftManager.instance.stack[actualItem].ToString();
-    }
-
-
-    private void Update()
-    {
-        img.sprite = itemImg[actualItem];
-        stackText.text = CraftManager.instance.stack[actualItem].ToString();
+        Transform weaponObject = InventoryManager.instance.EquipPrefab(weapon.weaponName, slotInGame.transform);
+        weaponObject.SetParent(slotInGame.transform);
+        weaponObject.localPosition = Vector3.zero;
+        weaponObject.localEulerAngles = Vector3.zero;
+        slotInGame.ChangeWeapon();
     }
 }
