@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Flamethrower
   m_EditorClassIdentifier: 
   weaponName: Flamethrower
-  weaponIcon: {fileID: -437097881, guid: 672e1254a70f7c546b03df18a8b457db, type: 3}
-  weaponPrefab: {fileID: 0}
+  weaponIcon: {fileID: 21300000, guid: 4bc1c8ca730a3874d988a7e701fcfd32, type: 3}
   numberOfWeapon: 0

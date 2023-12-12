@@ -47,8 +47,8 @@ GameObject:
   - component: {fileID: 6721278208176874484}
   - component: {fileID: 6077134752037859101}
   - component: {fileID: 612238879148320188}
-  - component: {fileID: 3211983515140017239}
-  - component: {fileID: 2217557216965896783}
+  - component: {fileID: 246557165005994746}
+  - component: {fileID: 5053022968971848692}
   m_Layer: 11
   m_Name: PickUpItem
   m_TagString: PickUp
@@ -111,8 +111,8 @@ MonoBehaviour:
   - {fileID: 1920071677202258456}
   - {fileID: 8458880330030048863}
   - {fileID: 1449407012815780970}
-  weapon: {fileID: 8439314870360087099, guid: 4816d1c10831b5441addc3e6dd49b9dd, type: 3}
-  isWeapon: 1
+  weapon: {fileID: 0}
+  isWeapon: 0
 --- !u!95 &612238879148320188
 Animator:
   serializedVersion: 5
@@ -134,7 +134,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!33 &3211983515140017239
+--- !u!33 &246557165005994746
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,7 +142,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8161853095321862932}
   m_Mesh: {fileID: 4300000, guid: 46e95694d1c06cf4aace66744654109b, type: 2}
---- !u!23 &2217557216965896783
+--- !u!23 &5053022968971848692
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -273,15 +273,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 761954827033112929, guid: 52238a105c17bf041bae1850396ee406, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 761954827033112929, guid: 52238a105c17bf041bae1850396ee406, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 761954827033112929, guid: 52238a105c17bf041bae1850396ee406, type: 3}
       propertyPath: m_LocalScale.z
-      value: 3
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 761954827033112929, guid: 52238a105c17bf041bae1850396ee406, type: 3}
       propertyPath: m_LocalPosition.x

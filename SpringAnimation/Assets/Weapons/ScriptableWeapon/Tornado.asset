@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Tornado
   m_EditorClassIdentifier: 
   weaponName: Tornado
-  weaponIcon: {fileID: 1202993440, guid: 672e1254a70f7c546b03df18a8b457db, type: 3}
-  weaponPrefab: {fileID: 0}
+  weaponIcon: {fileID: 21300000, guid: cf72519ad2eb598499af97cb1d6a54df, type: 3}
   numberOfWeapon: 0
+  isCraftable: 1
+  itemNeeded:
+  - {fileID: 11400000, guid: 3db0bad9a1d695f43a53c357a3fa5d34, type: 2}
+  - {fileID: 11400000, guid: 37699be312d272948ac5c2fb48d8ed65, type: 2}

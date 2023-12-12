@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
     public float speed = 5f;
     public float rotationSpeed = 0.2f;
     public float jumpForce = 8;
+    public float jumpForwardBrake = 2;
+    private Vector3 velocityBonus;
     
     [Header("Needed references")]
     public Camera playerCamera;
@@ -32,11 +34,12 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if(GameManager.isPlayerLock)
+        if (GameManager.isPlayerLock)
+        {
+            _rb.velocity = Vector3.zero;
             return;
+        }
 
-        
-        
         Move();
     }
 
@@ -55,19 +58,27 @@ public class PlayerController : MonoBehaviour
 
         // Move the character
         Vector3 velocity = moveDirection.normalized * speed;
+
+        //if (_rb.velocity.x < -speed || _rb.velocity.x > speed)
+           // velocity.x = _rb.velocity.x;
+        
+       // if (_rb.velocity.z < -speed || _rb.velocity.z > speed)
+          //  velocity.z = _rb.velocity.z;
+
+          //_rb.AddForce(velocity, ForceMode.Force);
         _rb.velocity = new Vector3(velocity.x, _rb.velocity.y, velocity.z);
         
         bool doJump = Input.GetKeyDown(KeyCode.Space) && grounded;
         
         if (doJump)
         {
-            Jump();
+            Jump(new Vector3(moveDirection.x/jumpForwardBrake, 1, moveDirection.z/jumpForwardBrake));
         }
 
         //If no input stop instantly the character
         if (horizontal == 0 && vertical == 0)
         {
-            _rb.velocity = new Vector3(0, _rb.velocity.y, 0);
+            //_rb.velocity = new Vector3(0, _rb.velocity.y, 0);
             modelAnimator.SetBool("isMoving", false);
         }
         else
@@ -76,7 +87,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void Jump() => _rb.AddForce(jumpForce * Vector3.up, ForceMode.Impulse);
+    public void Jump(Vector3 dir) => _rb.AddForce(jumpForce * dir, ForceMode.Impulse);
     
     
     

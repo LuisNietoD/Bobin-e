@@ -20,6 +20,14 @@ public class GuiOpener : MonoBehaviour
         MenuManager.OnClosePauseMenu += DisableInventory;
     }
     
+    private void OnDisable()
+    {
+        OnEnableMenu -= EnableInventory;
+        MenuManager.OnClosePauseMenu -= DisableInventory;
+    }
+    
+    
+    
 
     public void EnableInventory()
     {

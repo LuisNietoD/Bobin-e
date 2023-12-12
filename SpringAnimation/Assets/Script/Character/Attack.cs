@@ -99,14 +99,16 @@ public class Attack : MonoBehaviour
                 {
                     GameObject b = Instantiate(bombPrefab, right.transform.position, Quaternion.identity);
 
-                    b.GetComponent<BombBehavior>().startPoint = bomb.transform.position;
-                    b.GetComponent<BombBehavior>().endPoint = aim.transform.position;
+                    //b.GetComponent<BombBehavior>().startPoint = bomb.transform.position;
+                    //b.GetComponent<BombBehavior>().endPoint = aim.transform.position;
                     if (fire)
                         b.GetComponent<BombBehavior>().fireArea = fireArea;
                     _elapsedTime = 0;
                 }
             }
 
+            
+            //tornado
             if (elapsedTimeTornado > tornadoCooldown)
             {
                 if (Input.GetKeyDown(KeyCode.C))
@@ -129,6 +131,7 @@ public class Attack : MonoBehaviour
             {
                 elapsedTimeTornado += Time.deltaTime;
             }
+            //tornado
         }
     }
 

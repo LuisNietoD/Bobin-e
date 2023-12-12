@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Napalm
   m_EditorClassIdentifier: 
   weaponName: Napalm
-  weaponIcon: {fileID: 1599553623, guid: 672e1254a70f7c546b03df18a8b457db, type: 3}
-  weaponPrefab: {fileID: 0}
+  weaponIcon: {fileID: 21300000, guid: 063af818aa51c134d8a7fd1fdb362ec0, type: 3}
   numberOfWeapon: 0
+  isCraftable: 1
+  itemNeeded:
+  - {fileID: 11400000, guid: 66d00df3606d0334794acc0c577993d4, type: 2}
+  - {fileID: 11400000, guid: 3db0bad9a1d695f43a53c357a3fa5d34, type: 2}
