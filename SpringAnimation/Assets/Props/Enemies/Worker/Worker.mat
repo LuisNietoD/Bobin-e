@@ -17,7 +17,7 @@ Material:
   - _NORMALMAP
   - _OUTLINE
   - _RIMLIGHTING_ON
-  - _SPECULAR_COLOR
+  - _SPECGLOSSMAP
   m_InvalidKeywords:
   - _SPECULARHIGHLIGHTS_OFF
   m_LightmapFlags: 2
@@ -100,7 +100,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: ef212b1de297e2748a19079d96800040, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecularClipMask:
@@ -180,9 +180,9 @@ Material:
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _RimEnabled: 1
-    - _RimLightAlign: 1
-    - _RimLightSmoothness: 1
-    - _RimPower: 1
+    - _RimLightAlign: -0.06
+    - _RimLightSmoothness: 0
+    - _RimPower: 0.293
     - _Shininess: 0
     - _SizeFalloff: 0
     - _Smoothness: 0.5
