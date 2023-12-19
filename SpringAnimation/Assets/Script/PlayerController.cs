@@ -1,3 +1,5 @@
+using DG.Tweening;
+using MoreMountains.Feedbacks;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -7,7 +9,21 @@ public class PlayerController : MonoBehaviour
     public float rotationSpeed = 0.2f;
     public float jumpForce = 8;
     public float jumpForwardBrake = 2;
+    
+    bool chargingJump = false;
+    float chargeStartTime;
+    public float maxChargeTime = 2.0f; // Maximum charge time in seconds
+    public float minJumpForce = 8.0f; // Minimum jump force
+    public float maxJumpForce = 12.0f; // Maximum jump force
+    
     private Vector3 velocityBonus;
+
+    [Header("Feedback")]
+    public GameObject walkVFX;
+
+    public GameObject chargedVFX;
+    public ThirdPersonCamera camShake;
+    [Space] public AudioSource audioBoing;
     
     [Header("Needed references")]
     public Camera playerCamera;
@@ -66,14 +82,40 @@ public class PlayerController : MonoBehaviour
           //  velocity.z = _rb.velocity.z;
 
           //_rb.AddForce(velocity, ForceMode.Force);
-        _rb.velocity = new Vector3(velocity.x, _rb.velocity.y, velocity.z);
-        
-        bool doJump = Input.GetKeyDown(KeyCode.Space) && grounded;
-        
-        if (doJump)
+          
+        bool doJump = Input.GetKeyUp(KeyCode.Space) && grounded;
+
+        if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
-            Jump(new Vector3(moveDirection.x/jumpForwardBrake, 1, moveDirection.z/jumpForwardBrake));
+            chargingJump = true;
+            chargeStartTime = Time.time;
+            //transform.DOScaleY(0.7f, 2f);
+            
         }
+
+        if (Time.time - chargeStartTime > 0.5f && chargingJump)
+        {
+            chargedVFX.SetActive(true);
+            camShake.vibrating = true;
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space) && chargingJump)
+        {
+            float chargeTime = Time.time - chargeStartTime;
+            float normalizedCharge = Mathf.Clamp(chargeTime / maxChargeTime, 0f, 1f);
+            float chargedJumpForce = Mathf.Lerp(minJumpForce, maxJumpForce, normalizedCharge);
+
+            Debug.Log(chargedJumpForce);
+            Jump(new Vector3(moveDirection.x / jumpForwardBrake, 1, moveDirection.z / jumpForwardBrake), chargedJumpForce);
+
+            chargingJump = false;
+            chargedVFX.SetActive(false);
+            camShake.vibrating = false;
+            audioBoing.Play();
+            //transform.localScale = Vector3.one;
+        }
+        
+        _rb.velocity = new Vector3(velocity.x, _rb.velocity.y, velocity.z);
 
         //If no input stop instantly the character
         if (horizontal == 0 && vertical == 0)
@@ -87,7 +129,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void Jump(Vector3 dir) => _rb.AddForce(jumpForce * dir, ForceMode.Impulse);
+    public void Jump(Vector3 dir, float force) => _rb.AddForce(force * dir, ForceMode.Impulse);
     
     
     
@@ -97,7 +139,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             grounded = true;
-            TargetPosition.y = transform.position.y;
+            //TargetPosition.y = transform.position.y;
         }
     }
     

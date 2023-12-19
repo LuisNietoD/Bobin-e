@@ -15,6 +15,7 @@ MonoBehaviour:
   weaponName: Tornado
   weaponIcon: {fileID: 21300000, guid: cf72519ad2eb598499af97cb1d6a54df, type: 3}
   numberOfWeapon: 0
+  slotCompatibility: 010001
   isCraftable: 1
   itemNeeded:
   - {fileID: 11400000, guid: 3db0bad9a1d695f43a53c357a3fa5d34, type: 2}

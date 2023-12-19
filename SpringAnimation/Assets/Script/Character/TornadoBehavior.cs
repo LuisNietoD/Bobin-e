@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,19 +11,44 @@ public class TornadoBehavior : MonoBehaviour
     public Vector3 endPoint;
     public int right;
     private float t = 0.0f;
-    
-    
+    public float reach = 10;
+
+    private float scaleTime = 1.0f; // Adjust this to set the duration of scaling
+    private float scaleTimer = 0.0f;
+    private bool isScaling = false;
+
+    private void Start()
+    {
+        startPoint = transform.position;
+        endPoint = transform.position + transform.forward * reach;
+        transform.localScale = Vector3.zero;
+        isScaling = true;
+    }
+
     private void FixedUpdate()
     {
+        if (isScaling)
+        {
+            scaleTimer += Time.deltaTime;
+            float t = Mathf.Clamp01(scaleTimer / scaleTime);
+            transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, t);
+
+            if (scaleTimer >= scaleTime)
+            {
+                isScaling = false;
+                scaleTimer = 0.0f;
+            }
+        }
+        
         t += Time.deltaTime * speed;
         if (t > 1.0f)
         {
             t = 1.0f;
         }
-        
+
         Vector3 position = CalculateSineRight(t, startPoint, endPoint, amplitude, right); 
-        gameObject.transform.LookAt(Vector3.Lerp(startPoint, endPoint, 0.5f), gameObject.transform.up);
-        transform.position = position;
+        //gameObject.transform.LookAt(Vector3.Lerp(startPoint, endPoint, 0.5f), gameObject.transform.up);
+        transform.position = new Vector3(position.x, transform.position.y, position.z);
         
         
         if (Mathf.Abs(transform.position.x - endPoint.x )< 0.4f && Mathf.Abs(transform.position.z - endPoint.z )< 0.4f)

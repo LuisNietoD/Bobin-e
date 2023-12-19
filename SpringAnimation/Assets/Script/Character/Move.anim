@@ -310,7 +310,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 1.2956868, y: 0.810164, z: 1.0383967}
+        value: {x: 1.1, y: 0.810164, z: 1.0383967}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -319,16 +319,16 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.125
-        value: {x: 1.2, y: 1, z: 0.9}
-        inSlope: {x: 0, y: 0.020879619, z: 0}
-        outSlope: {x: 0, y: 0.020879619, z: 0}
+        value: {x: 1, y: 1, z: 0.9}
+        inSlope: {x: -0.8000002, y: 0.020879619, z: 0}
+        outSlope: {x: -0.8000002, y: 0.020879619, z: 0}
         tangentMode: 0
         weightedMode: 3
         inWeight: {x: 0.33333334, y: 0.53801596, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.57587624, z: 0.33333334}
       - serializedVersion: 3
         time: 0.25
-        value: {x: 1.2, y: 1, z: 0.9}
+        value: {x: 0.9, y: 1, z: 0.9}
         inSlope: {x: 0, y: 0.020879619, z: 0}
         outSlope: {x: 0, y: 0.020879619, z: 0}
         tangentMode: 0
@@ -337,16 +337,16 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.57587624, z: 0.33333334}
       - serializedVersion: 3
         time: 0.38333333
-        value: {x: 1.2, y: 1, z: 0.9}
-        inSlope: {x: 0, y: 0.020879619, z: 0}
-        outSlope: {x: 0, y: 0.020879619, z: 0}
+        value: {x: 1, y: 1, z: 0.9}
+        inSlope: {x: 0.8000002, y: 0.020879619, z: 0}
+        outSlope: {x: 0.8000002, y: 0.020879619, z: 0}
         tangentMode: 0
         weightedMode: 3
         inWeight: {x: 0.33333334, y: 0.53801596, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.57587624, z: 0.33333334}
       - serializedVersion: 3
         time: 0.5
-        value: {x: 1.2956868, y: 0.810164, z: 1.0383967}
+        value: {x: 1.1, y: 0.810164, z: 1.0383967}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -676,7 +676,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1.2956868
+        value: 1.1
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -685,16 +685,16 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.125
-        value: 1.2
-        inSlope: 0
-        outSlope: 0
+        value: 1
+        inSlope: -0.8000002
+        outSlope: -0.8000002
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.25
-        value: 1.2
+        value: 0.9
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -703,16 +703,16 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.38333333
-        value: 1.2
-        inSlope: 0
-        outSlope: 0
+        value: 1
+        inSlope: 0.8000002
+        outSlope: 0.8000002
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.5
-        value: 1.2956868
+        value: 1.1
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1630,4 +1630,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.09166667
+    functionName: PlayBoing
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

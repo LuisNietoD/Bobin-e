@@ -9,6 +9,17 @@ public class GearManager : MonoBehaviour
     public List<Gear> goals = new List<Gear>();
     public bool done;
     public CogGameScript cgs;
+    public List<Transform> allGears = new List<Transform>();
+    public Transform wall;
+
+    private void Start()
+    {
+        foreach (var g in allGears)
+        {
+            g.transform.localPosition = new Vector3(g.transform.localPosition.x, g.transform.localPosition.y,
+                wall.localPosition.z);
+        }
+    }
 
     private void Update()
     {

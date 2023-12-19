@@ -10,9 +10,6 @@ public class Attacking : BaseState
     {
         if (!enemy.CompareTag("Bird") && enemy.attackPattern != null) 
             enemy.attackPattern.SetActive(true);
-
-
-        
     }
 
     public override void UpdateState(StateManager mob, Enemy enemy)

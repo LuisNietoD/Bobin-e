@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Canon
   weaponIcon: {fileID: 21300000, guid: 76784b6b5d0cf1644b9f9b66b0bbf8d2, type: 3}
-  numberOfWeapon: 4
+  numberOfWeapon: 0
+  slotCompatibility: 010101
   isCraftable: 1
   itemNeeded:
   - {fileID: 11400000, guid: 66d00df3606d0334794acc0c577993d4, type: 2}

@@ -14,6 +14,9 @@ TagManager:
   - Teleporter
   - EnemyAttack
   - PickUp
+  - rat
+  - Door
+  - Bird
   layers:
   - Default
   - TransparentFX
@@ -32,10 +35,10 @@ TagManager:
   - Teleporter
   - Spring
   - Enemy
-  - 
-  - 
-  - 
-  - 
+  - GearWall
+  - EnemyAttack
+  - PostProcess
+  - PickUpPhysics
   - 
   - 
   - 

@@ -44,7 +44,7 @@ public class GearGenerator : MonoBehaviour
             cog.transform.parent = transform;
             cog.transform.localEulerAngles = new Vector3(0, 0, step * i + 90);
             cog.transform.position += cog.transform.up * radius;
-            cog.GetComponent<Renderer>().material = gearMaterial;
+            cog.transform.GetChild(0).GetComponent<Renderer>().material = gearMaterial;
         }
 
         float bodyScale = (radius * 1.2f) * m_bodyscale;
@@ -54,7 +54,7 @@ public class GearGenerator : MonoBehaviour
         body.transform.localPosition = new Vector3(0, 0, 0.08f);
         body.transform.localScale = new Vector3(bodyScale, 0.1f, bodyScale);
         body.transform.localEulerAngles = new Vector3(90, 0, 0);
-        body.GetComponent<Renderer>().material = gearMaterial;
+        body.transform.GetChild(0).GetComponent<Renderer>().material = gearMaterial;
 
         
         //collider

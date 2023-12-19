@@ -14,4 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Bomb
   weaponIcon: {fileID: 21300000, guid: 6ad59e3e12b1e1d458a512b63906095a, type: 3}
-  numberOfWeapon: 1
+  numberOfWeapon: 0
+  slotCompatibility: 010101
+  isCraftable: 0
+  itemNeeded: []

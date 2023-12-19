@@ -19,6 +19,7 @@ public class Gear : MonoBehaviour
     public Material wrongPosMaterial;
     public Material GoodPosMaterial;
     public bool onHand;
+    public GameObject motorObject;
     
 
     private void FixedUpdate()
@@ -35,13 +36,35 @@ public class Gear : MonoBehaviour
         }
     }
 
+    public void ChangeSpeed(float speed)
+    {
+        actualSpeed = speed;
+        if (actualSpeed == 0)
+        {
+            foreach (var g in neighbors)
+            {
+                if(!g.motor)
+                    g.actualSpeed = 0;
+            }
+        }
+        else
+        {
+            foreach (var g in neighbors)
+            {
+                if(!g.motor)
+                    g.actualSpeed = actualSpeed * ((float)cogs / (float)g.cogs) * -1; 
+            }
+        }
+    }
+
     public void ChangeMaterial(Material mat)
     {
         if (isMovable && onHand)
         {
             foreach (Transform child in transform)
             {
-                child.GetComponent<Renderer>().material = mat;
+                if(child.transform.childCount > 0)
+                    child.transform.GetChild(0).GetComponent<Renderer>().material = mat;
             }
         }
     }
@@ -53,11 +76,12 @@ public class Gear : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (actualSpeed > 0 && other.CompareTag("Gear"))
+        if (actualSpeed != 0 && other.CompareTag("Gear"))
         {
-            neighbors.Add(other.transform.parent.GetComponent<Gear>());
-        }
-        
+            if(!neighbors.Contains(other.transform.parent.GetComponent<Gear>()))
+                neighbors.Add(other.transform.parent.GetComponent<Gear>());
+        } 
+
         if(other.CompareTag("Cog"))
         {
             roll = false;
@@ -74,11 +98,21 @@ public class Gear : MonoBehaviour
     {
         if (other.CompareTag("Gear") && actualSpeed != 0 && !onHand)
         {
-            Gear child = other.transform.parent.GetComponent<Gear>();
-            child.actualSpeed = actualSpeed * ((float)cogs / (float)child.cogs) * -1;
-            child.actualTorque = actualTorque / ((float)cogs / (float)child.cogs) * -1;
+            if (!other.transform.parent.GetComponent<Gear>().motor && !other.transform.parent.GetComponent<Gear>().onHand)
+            {
+                if (neighbors.Contains(other.transform.parent.GetComponent<Gear>()))
+                {
+                    Gear child = other.transform.parent.GetComponent<Gear>();
+                    child.ChangeSpeed(actualSpeed * ((float)cogs / (float)child.cogs) * -1);
+                    child.actualTorque = actualTorque / ((float)cogs / (float)child.cogs) * -1;
+                }
+
+                if (!neighbors.Contains(other.transform.parent.GetComponent<Gear>()) &&
+                    !other.transform.parent.GetComponent<Gear>().neighbors.Contains(this))
+                    neighbors.Add(other.transform.parent.GetComponent<Gear>());
+            }
         }
-        
+
         if(!other.CompareTag("Cog"))
         {
             roll = true;
@@ -89,10 +123,10 @@ public class Gear : MonoBehaviour
     {
         if (!motor && !other.CompareTag("Cog"))
         {
-            actualSpeed = 0;
+            ChangeSpeed(0);
             actualTorque = 0;
         }
-        
+
         if (other.CompareTag("Gear"))
         {
             if(neighbors.Contains(other.transform.parent.GetComponent<Gear>()))

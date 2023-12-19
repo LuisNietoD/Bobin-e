@@ -13,6 +13,7 @@ public class ItemSlot : MonoBehaviour
     public GameObject equipButton;
     public CoilSlot slotInGame;
     public GameObject cross;
+    public int ID;
 
     public void Equip()
     {

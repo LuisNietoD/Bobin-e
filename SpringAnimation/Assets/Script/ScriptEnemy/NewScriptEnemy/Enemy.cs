@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,6 +46,11 @@ public class Enemy : MonoBehaviour
     public bool playerInAttackRange;
 
 
+    private void Start()
+    {
+        player = GameManager.instance.player;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -65,7 +71,7 @@ public class Enemy : MonoBehaviour
 
     public void ThrowRat()
     {
-        Debug.Log("Rat jeté");
+        Debug.Log("Rat jetï¿½");
         Rigidbody rb = Instantiate(ratAgent, caughtRat.transform.position, Quaternion.identity).GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
         rb.AddForce(transform.up * 8f, ForceMode.Impulse);

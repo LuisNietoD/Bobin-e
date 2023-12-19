@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
@@ -8,8 +9,14 @@ public class RangeAttack : MonoBehaviour
     public float timeBetweenAttacks;
     bool alreadyAttacked;
     public GameObject projectile;
+    public Transform spawnPoint;
 
     public GameObject player;
+
+    private void Start()
+    {
+        player = GameManager.instance.player.gameObject;
+    }
 
     void Update()
     {
@@ -19,8 +26,14 @@ public class RangeAttack : MonoBehaviour
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
 
             // Instantiate the projectile at the enemy's position
-            GameObject newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
+            Instantiate(projectile, spawnPoint.position, Quaternion.identity);
 
+            Vector3 lookTarget = player.transform.position;
+            lookTarget.y = transform.position.y;
+            
+            transform.LookAt(lookTarget);
+
+            /*
             // Calculate the direction from the enemy to the player
             Vector3 directionToPlayer = (player.transform.position - transform.position).normalized;
 
@@ -44,7 +57,7 @@ public class RangeAttack : MonoBehaviour
                             // Destroy the projectile when it reaches the player
                             Destroy(newProjectile);
                         });
-                });
+                });*/
         }
     }
 
