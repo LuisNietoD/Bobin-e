@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3648955875491947821
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 7
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -7,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Trimsheet
+  m_Name: Titan
   m_Shader: {fileID: 4800000, guid: e88aeddd2ef1f934d805981244872e27, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -17,8 +30,7 @@ Material:
   - _OUTLINE
   - _RIMLIGHTING_ON
   - _SPECGLOSSMAP
-  m_InvalidKeywords:
-  - _SPECULARHIGHLIGHTS_OFF
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -31,11 +43,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 7b1ae2400dcf5674a96384625e5e2d93, type: 3}
+        m_Texture: {fileID: 2800000, guid: d9842758b8408ce439e8d32a5a680e84, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 6faae5a3a60636647816b9dd31331cf5, type: 3}
+        m_Texture: {fileID: 2800000, guid: 662693ab1545f9647a22637330efcc17, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -79,7 +91,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 7b1ae2400dcf5674a96384625e5e2d93, type: 3}
+        m_Texture: {fileID: 2800000, guid: d9842758b8408ce439e8d32a5a680e84, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -99,7 +111,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
-        m_Texture: {fileID: 2800000, guid: c15f5836a3e697c49a1a44e967a11e9a, type: 3}
+        m_Texture: {fileID: 2800000, guid: 05e51bd4a823407419c33994904c067d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecularClipMask:
@@ -130,7 +142,7 @@ Material:
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _Cull: 2
-    - _Cutoff: 0.357
+    - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DiffuseStep: 0
@@ -180,8 +192,8 @@ Material:
     - _ReceiveShadows: 1
     - _RimEnabled: 1
     - _RimLightAlign: -1
-    - _RimLightSmoothness: 0.5
-    - _RimPower: 0.417
+    - _RimLightSmoothness: 0
+    - _RimPower: 0.202
     - _Shininess: 0
     - _SizeFalloff: 0
     - _Smoothness: 0.5
@@ -216,20 +228,7 @@ Material:
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineDistancFade: {r: -200, g: 200, b: 0, a: 0}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
-    - _ShadowColor: {r: 0, g: 0, b: 0, a: 0.5}
+    - _ShadowColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999993, g: 0.19999993, b: 0.19999993, a: 0.5}
     - _SpherizeNormalOrigin: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &6382150459584884899
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 7
