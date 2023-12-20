@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1706.6667
     height: 869.3334
   m_ShowMode: 4
-  m_Title: Inspector
+  m_Title: Scene
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 114
+  controlID: 119
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 115
+  controlID: 120
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -423,9 +423,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: aaedffff8eefffffe4faffff
+      m_SelectedIDs: d2ddffff
+      m_LastClickedID: -8750
+      m_ExpandedIDs: 7807ffffcaa1ffffceddffffd2ddffffeef4ffff489b0000d29b0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -917,9 +917,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 252.08363, y: -34.38924, z: -96.36713}
+    m_Target: {x: 375.9508, y: 46.106575, z: 82.39476}
     speed: 2
-    m_Value: {x: 252.08363, y: -34.38924, z: -96.36713}
+    m_Value: {x: 375.9508, y: 46.106575, z: 82.39476}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -929,7 +929,7 @@ MonoBehaviour:
   m_DoValidateTrueMetals: 0
   m_SceneViewState:
     m_AlwaysRefresh: 0
-    showFog: 1
+    showFog: 0
     showSkybox: 1
     showFlares: 1
     showImageEffects: 1
@@ -965,13 +965,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.4541872, y: -0.081598915, z: 0.045059413, w: 0.8874361}
+    m_Target: {x: 0.28592092, y: -0.26285127, z: 0.084390335, w: 0.9190052}
     speed: 2
-    m_Value: {x: 0.4563796, y: -0.102488846, z: 0.05633965, w: 0.88206553}
+    m_Value: {x: 0.28942746, y: -0.26488358, z: 0.086338334, w: 0.9157587}
   m_Size:
-    m_Target: 64.45027
+    m_Target: 42.075485
     speed: 2
-    m_Value: 67.4872
+    m_Value: 40.263622
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1139,7 +1139,7 @@ MonoBehaviour:
     m_SkipHidden: 1
     m_SearchArea: 1
     m_Folders:
-    - Assets/Props/Environment
+    - Assets/Props
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1147,16 +1147,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Props/Environment
+  - Assets/Props
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\tomr4\OneDrive\Documents\GitHub\Bobin-e\SpringAnimation
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 250.33337}
-    m_SelectedIDs: 42d40000
-    m_LastClickedID: 54338
-    m_ExpandedIDs: 00000000b6d30000b8d30000bad30000bcd30000bed30000c0d30000c2d3000056d400007efe000000ca9a3b
+    scrollPos: {x: 0, y: 351}
+    m_SelectedIDs: dad70000
+    m_LastClickedID: 55258
+    m_ExpandedIDs: 000000001c4e0000204e0000d0d70000d2d70000d4d70000d6d70000d8d70000dad70000dcd7000042d8000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1184,7 +1184,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000b6d30000b8d30000bad30000bcd30000bed30000c0d30000c2d30000
+    m_ExpandedIDs: 00000000d0d70000d2d70000d4d70000d6d70000d8d70000dad70000dcd70000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1236,7 +1236,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 89}
+    m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 64
   m_SkipHiddenPackages: 1
   m_DirectoriesAreaWidth: 207
