@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Propeller : MonoBehaviour, AttackBehavior
@@ -26,7 +24,6 @@ public class Propeller : MonoBehaviour, AttackBehavior
     {
     }
     
-
     public void StartMethods(GameObject slot)
     {
         transform.GetChild(0).gameObject.SetActive(true);
@@ -34,7 +31,7 @@ public class Propeller : MonoBehaviour, AttackBehavior
 
     public void UpdateMethods()
     {
-        if (!playerController.grounded && Input.GetKeyDown(KeyCode.Space))
+        if (!playerController.grounded && Input.GetKeyDown(KeyCode.Space) && !hover)
         {
             hover = true;
             rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
@@ -42,9 +39,11 @@ public class Propeller : MonoBehaviour, AttackBehavior
 
         if (hoverTime > 0 && Input.GetKey(KeyCode.Space) && hover)
         {
+            Debug.Log( "is grounded" + playerController.grounded);
             hoverTime -= Time.deltaTime;
             if (!playerController.grounded)
             {
+                
                 rb.AddForce(hoverForce * Vector3.up, ForceMode.Acceleration);
                 transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y + rotateSpeed, 0);
             }
@@ -55,4 +54,6 @@ public class Propeller : MonoBehaviour, AttackBehavior
             hoverTime = hoverTimeDefault;
         }
     }
+
+    
 }

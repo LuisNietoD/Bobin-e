@@ -128,9 +128,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a33fb991ae919ce4a99678e33226a841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverForce: 15
-  rotateSpeed: 10
-  hoverTimeDefault: 3
+  hoverForce: 30
+  rotateSpeed: 15
+  hoverTimeDefault: 2
   hover: 0
 --- !u!1 &327803429700380423
 GameObject:

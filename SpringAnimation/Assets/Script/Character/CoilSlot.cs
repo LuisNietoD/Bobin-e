@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class CoilSlot : MonoBehaviour
 {
@@ -21,8 +17,12 @@ public class CoilSlot : MonoBehaviour
         {
             actualAttack.Action();
         }
-        
-        if(actualAttack != null)
-            actualAttack.UpdateMethods();
     }
+
+    private void FixedUpdate()
+    {
+        //Debug.Log("tefstttttt");
+        actualAttack?.UpdateMethods();
+    }
+    
 }
