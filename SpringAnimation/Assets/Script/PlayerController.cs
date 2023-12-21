@@ -74,23 +74,12 @@ public class PlayerController : MonoBehaviour
 
         // Move the character
         Vector3 velocity = moveDirection.normalized * speed;
-
-        //if (_rb.velocity.x < -speed || _rb.velocity.x > speed)
-           // velocity.x = _rb.velocity.x;
         
-       // if (_rb.velocity.z < -speed || _rb.velocity.z > speed)
-          //  velocity.z = _rb.velocity.z;
-
-          //_rb.AddForce(velocity, ForceMode.Force);
-          
-        bool doJump = Input.GetKeyUp(KeyCode.Space) && grounded;
-
         if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
             chargingJump = true;
             chargeStartTime = Time.time;
             //transform.DOScaleY(0.7f, 2f);
-            
         }
 
         if (Time.time - chargeStartTime > 0.5f && chargingJump)
@@ -130,7 +119,6 @@ public class PlayerController : MonoBehaviour
     }
 
     public void Jump(Vector3 dir, float force) => _rb.AddForce(force * dir, ForceMode.Impulse);
-    
     
     
     //Ground check

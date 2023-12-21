@@ -12,6 +12,8 @@ public class RangeAttack : MonoBehaviour
     public Transform spawnPoint;
 
     public GameObject player;
+    public Animator anim;
+    private GameObject actualProj;
 
     private void Start()
     {
@@ -26,7 +28,8 @@ public class RangeAttack : MonoBehaviour
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
 
             // Instantiate the projectile at the enemy's position
-            Instantiate(projectile, spawnPoint.position, Quaternion.identity);
+            anim.Play("Attack");
+            
 
             Vector3 lookTarget = player.transform.position;
             lookTarget.y = transform.position.y;
@@ -58,6 +61,25 @@ public class RangeAttack : MonoBehaviour
                             Destroy(newProjectile);
                         });
                 });*/
+        }
+    }
+
+    public void Shoot()
+    {
+        actualProj.GetComponent<SinWaveProjectile>().startPoint = actualProj.transform.position;
+        actualProj.GetComponent<SinWaveProjectile>().endPoint = GameManager.instance.player.position;
+        actualProj.GetComponent<SinWaveProjectile>().enabled = true;
+        actualProj.transform.parent = null;
+    }
+
+    public void SpawnProjectile()
+    {
+        GameObject p = Instantiate(projectile, spawnPoint.position, Quaternion.identity);
+        if (p.TryGetComponent<SinWaveProjectile>(out var s))
+        {
+            actualProj = p;
+            actualProj.transform.parent = spawnPoint;
+            s.enabled = false;
         }
     }
 

@@ -11,6 +11,7 @@ public class Canon : MonoBehaviour, AttackBehavior
     public Transform spawnPoint;
     public float power = 10;
     public string weaponName;
+    public Animator anim;
     
     // Start is called before the first frame update
     void Start()
@@ -21,12 +22,23 @@ public class Canon : MonoBehaviour, AttackBehavior
     public string Name { get; set; }
     public void Action()
     {
+        
         if (GameManager.isPlayerLock || _elapsedTime < cooldown)
             return;
         
+        if(anim!= null)
+            anim.Play("Shoot");
+        else
+        {
+            Shoot();
+        }
+    }
+
+    public void Shoot()
+    {
         GameObject b = Instantiate(bombPrefab, spawnPoint.transform.position, Quaternion.identity);
         b.transform.forward = spawnPoint.forward;
-        b.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
+        b.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
         b.GetComponent<BombBehavior>().power = power;
         b.GetComponent<BombBehavior>().napalm = napalm;
         _elapsedTime = 0;

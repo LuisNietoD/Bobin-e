@@ -5,9 +5,8 @@ using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
-    public delegate void MenuAction();
-    public static event MenuAction OnOpenPauseMenu;
-    public static event MenuAction OnClosePauseMenu;
+    public static event Action OnOpenPauseMenu;
+    public static event Action OnClosePauseMenu;
     
     public static void OpenPauseMenu()
     {

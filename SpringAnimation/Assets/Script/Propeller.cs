@@ -43,7 +43,7 @@ public class Propeller : MonoBehaviour, AttackBehavior
         if (hoverTime > 0 && Input.GetKey(KeyCode.Space) && hover)
         {
             hoverTime -= Time.deltaTime;
-            if (Input.GetKey(KeyCode.Space) && !playerController.grounded)
+            if (!playerController.grounded)
             {
                 rb.AddForce(hoverForce * Vector3.up, ForceMode.Acceleration);
                 transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y + rotateSpeed, 0);

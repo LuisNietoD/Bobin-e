@@ -535,6 +535,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 3051867224792907845}
   power: 25
   weaponName: Canon
+  anim: {fileID: 8953032009068437181}
 --- !u!1001 &9004982520233897099
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -618,8 +619,53 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b6b7842b3f71f2341b4d8026f40a5ad7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8953032009068437181}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b6b7842b3f71f2341b4d8026f40a5ad7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3161467487625838297}
   m_SourcePrefab: {fileID: 100100000, guid: b6b7842b3f71f2341b4d8026f40a5ad7, type: 3}
+--- !u!1 &8086624578663191002 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b6b7842b3f71f2341b4d8026f40a5ad7, type: 3}
+  m_PrefabInstance: {fileID: 9004982520233897099}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8953032009068437181
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8086624578663191002}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c7757420f12ae9e47a8ee318310c9052, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3161467487625838297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8086624578663191002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac8a3fe36b0ac3f45a1336e147ad7877, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canon: {fileID: 999448724467330575}
 --- !u!4 &8895355391036738400 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b6b7842b3f71f2341b4d8026f40a5ad7, type: 3}
